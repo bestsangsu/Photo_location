@@ -26,11 +26,12 @@
     </div>
 
     <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const location = urlParams.has("location") ? urlParams.get("location") : "default";
-      const photoContainer = document.querySelector("#photo-container");
+     const photo = document.createElement("div");
+           photo.classList.add("photo");
+           photo.style.backgroundImage = `url(images/${location.toLowerCase()}/a1.jpg)`;
+           photoContainer.appendChild(photo);
 
-      fetch("../tour.xml")
+      fetch("tour.xml")
         .then((response) => response.text())
         .then((xmlString) => {
           const parser = new DOMParser();
@@ -42,7 +43,7 @@
           images.forEach((image) => {
             const photo = document.createElement("div");
             photo.classList.add("photo");
-            photo.style.backgroundImage = `url(/images/${location.toLowerCase()}/${image.getAttribute("src")})`;
+            photo.style.backgroundImage = `url(images/${location.toLowerCase()}/${image.getAttribute("src")})`;
             photoContainer.appendChild(photo);
           });
         });
