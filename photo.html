@@ -30,7 +30,7 @@
       const location = urlParams.has("location") ? urlParams.get("location") : "default";
       const photoContainer = document.querySelector("#photo-container");
 
-      fetch("tour.xml")
+      fetch("../tour.xml")
         .then((response) => response.text())
         .then((xmlString) => {
           const parser = new DOMParser();
