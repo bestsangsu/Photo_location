@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출사지 사진 보기</title>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/easygpt/default.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <style>
+      .photo {
+        width: 100%;
+        height: 500px;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="location-title"></h1>
+      <div id="photo-container"></div>
+    </div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const location = urlParams.get("location");
+
+      const locationTitle = document.querySelector("#location-title");
+      locationTitle.textContent = location;
+
+      const photoContainer = document.querySelector("#photo-container");
+
+      fetch("tour.xml")
+        .then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => {
+          const locationData = data.querySelector(`location[name="${location}"]`);
+          const images = locationData.querySelectorAll("image");
+
+          images.forEach((image, index) => {
+            const photo = document.createElement("div");
+            photo.classList.add("photo");
+            photo.style.backgroundImage = `url(${image.getAttribute("src")})`;
+            photo.dataset.link = image.getAttribute("data-link");
+            photo.addEventListener("click", function() {
+              window.location.href = this.dataset.link;
+            });
+            photoContainer.appendChild(photo);
+          });
+        });
+    </script>
+  </body>
+</html>
