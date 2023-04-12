@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<photos>
+<location name="seoul">
+  <image src="images/seoul/a1.jpg" data-link="https://blog.naver.com/queenmotel33"  />
+  <image src="images/seoul/a2.jpg" data-link="https://blog.naver.com/queenmotel33/223062042294"  />
+  <image src="images/seoul/a3.jpg" data-link="https://naver.com"  />
+</location>
+
+
+
+  <location name="gyeonggi">
+    <image src=" images/gyeonggi/gyeonggi1.jpg" data-link="https://naver.com" />
+    <image src=" images/gyeonggi/gyeonggi2.jpg" data-link="https://naver.com"  />
+    <image src="images/gyeonggi/gyeonggi3.jpg" data-link="https://naver.com"  />
+  </location>
+  <location name="busan">
+    <image src="images/busan/a1.jpg" data-link="https://naver.com"  />
+    <image src="images/busan/a2.jpg" data-link="https://naver.com" />
+    <image src="images/busan/a3.jpg" data-link="https://naver.com" />
+  </location>
+ <location name="gwangju">
+    <image src="images/gwangju/a1.jpg" data-link="https://naver.com" />
+    <image src="images/gwangju/a2.jpg" data-link="https://naver.com" />
+    <image src="images/gwangju/a2.jpg" data-link="https://naver.com" />
+  </location>
+
+  <location name="gyeongsangnam">
+    <image src="images/gyeongsangnam/c1.jpg" data-link="https://naver.com" />
+    <image src="images/gyeongsangnam/c2.jpg" data-link="https://naver.com" />
+    <image src="images/gyeongsangnam/c3.jpg" data-link="https://naver.com" />
+  </location>
+
+    <location name="gyeongsangbuk">
+    <image src="images/gyeongsangbuk/c1.jpg" data-link="https://naver.com" />
+    <image src="images/gyeongsangbuk/c2.jpg" data-link="https://naver.com" />
+    <image src="images/gyeongsangbuk/c3.jpg" data-link="https://naver.com" />
+  </location>
+
+ <location name="chungcheongnam">
+    <image src="images/chungcheongnam/c1.jpg" data-link="https://naver.com" />
+    <image src="images/chungcheongnam/c2.jpg" data-link="https://naver.com" />
+    <image src="images/chungcheongnam/c3.jpg" data-link="https://naver.com" />
+  </location>
+    <location name="chungcheongbuk">
+    <image src="images/chungcheongbuk/c1.jpg" data-link="https://naver.com" />
+    <image src="images/chungcheongbuk/c2.jpg" data-link="https://naver.com" />
+    <image src="images/chungcheongbuk/c3.jpg" data-link="https://naver.com" />
+  </location>
+
+<location name="jeonranam">
+    <image src="images/jeonranam/c1.jpg" data-link="https://naver.com" />
+    <image src="images/jeonranam/c2.jpg" data-link="https://naver.com" />
+    <image src="images/jeonranam/c3.jpg" data-link="https://naver.com" />
+  </location>
+    <location name="jeonrabuk">
+    <image src="images/jeonrabuk/c1.jpg" data-link="https://naver.com" />
+    <image src="images/jeonrabuk/c2.jpg" data-link="https://naver.com" />
+    <image src="images/jeonrabuk/c3.jpg" data-link="https://naver.com" />
+  </location>
+
+<location name="gangwon">
+    <image src="images/gangwon/c1.jpg" data-link="https://naver.com" />
+    <image src="images/gangwon/c2.jpg" data-link="https://naver.com" />
+    <image src="images/gangwon/c3.jpg" data-link="https://naver.com" />
+  </location>
+    <location name="jeju">
+    <image src="images/jeju/c1.jpg" data-link="https://naver.com" />
+    <image src="images/jeju/c2.jpg" data-link="https://naver.com" />
+    <image src="images/jeju/c3.jpg" data-link="https://naver.com" />
+  </location>
+  
+      <location name="ete">
+    <image src="images/ete/c1.jpg" data-link="https://naver.com" />
+    <image src="images/ete/c2.jpg" data-link="https://naver.com" />
+    <image src="images/ete/c3.jpg" data-link="https://naver.com" />
+  </location>
+
+
+</photos>
