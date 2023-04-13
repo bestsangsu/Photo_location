@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Gallery</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS 파일 로드 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- lightbox 라이브러리 파일 로드 -->
+<link href="./lightbox.min.css" rel="stylesheet">
+<script src="./lightbox.min.js"></script>
+</head>
+<body>
+  <!-- 서울 지역 이미지를 보여주는 부분 -->
+  <div id="photo-container" class="row">
+    <!-- 이미지를 추가할 부분 -->
+  </div>
+
+        <!-- Bootstrap CSS 파일 로드 -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <!-- lightbox 라이브러리 파일 로드 -->
+      <link href="./lightbox.min.css" rel="stylesheet">
+
+      <!-- ...중략... -->
+
+      <!-- Bootstrap JS 파일과 jQuery 파일 로드 -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <!-- lightbox 라이브러리 파일 로드 -->
+      <script src="./lightbox.min.js"></script>
+
+    <script>
+    // URL에서 location 파라미터 값을 가져옴
+    const urlParams = new URLSearchParams(window.location.search);
+    const location = urlParams.get('location');
+
+    // tour.xml 파일에서 해당 지역의 이미지 정보를 가져옴
+    fetch('tour.xml')
+      .then(response => response.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => {
+        const images = data.getElementsByTagName('image');
+        for (let i = 0; i < images.length; i++) {
+          const image = images[i];
+          const imageLocation = image.getAttribute('location');
+          if (imageLocation === location) {
+            const imageUrl = image.getAttribute('url');
+            const imageTitle = image.getAttribute('title');
+            const imageDescription = image.getAttribute('description');
+
+        <!-- 이미지를 추가함 -->
+        const photoContainer = document.getElementById('photo-container');
+        const photoDiv = document.createElement('div');
+        photoDiv.classList.add('col-md-4');
+        photoDiv.innerHTML = `
+          <a href="images/seoul/a1.jpg" data-lightbox="image" data-title="${imageTitle}">
+            <img src="images/seoul/a1.jpg" alt="${imageTitle}" class="img-thumbnail">
+          </a>
+          <div class="caption">
+            <h3>${imageTitle}</h3>
+            <p>${imageDescription}</p>
+          </div>
+         `;
+         photoContainer.appendChild(photoDiv);
+          }
+        }
+      })
+      .catch(error => console.log(error));
+  </script>
+</body>
+</html>
