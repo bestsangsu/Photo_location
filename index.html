@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>출사지 소개</title>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/easygpt/default.css" />
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link rel="stylesheet" href="style.css">
+  <style>
+    @media screen and (max-width: 767px) {
+      .title-image-center h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+<style>
+/* 카드 스타일 */
+.card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.5s ease-out;
+  background-color: #78c8b4; /* 단일 색 지정 */
+}
+
+/* 본문 섹션 */
+.content-section {
+  margin-top: 50px; /* 타이틀과 본문 카드 사이의 간격을 조절합니다. */
+  display: flex;
+  flex-wrap: wrap; /* 요소들이 한 줄에 꽉 차면 다음 줄로 넘어가도록 설정 */
+  justify-content: center; /* 요소들을 수평 중앙 정렬 */
+}
+
+.card-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 전체 배경색 */
+body {
+  background-color: #000000;
+}
+
+/* 히어로 섹션 */
+.hero {
+  background-color: #78c8b4;
+  padding: 50px 0 20px;
+  text-align: center;
+}
+
+/* 컨테이너 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 제목 */
+h1 {
+  color: #ffffff;
+  margin: 0;
+  background-color: #78c8b4;
+  text-align: center;
+  padding: 20px;
+  font-size: 36px;
+}
+
+/* 소제목 */
+h3 {
+  color: #ffffff;
+  margin: 0;
+}
+
+/* 타이틀 섹션 스타일 */
+.title-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px; /* 높이를 30% 줄임 */
+  background-color: #333;
+}
+
+/* 좌우측 이미지 스타일 */
+.title-image-left,
+.title-image-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-image-left img,
+.title-image-right img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 가운데 이미지 스타일 */
+.title-image-center {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+  background-color: #78c8b4;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box; /* padding 값이 width, height에 포함되도록 함 */
+}
+
+.title-image-center h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.title-image-center p {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.card img {
+  transition: transform 0.5s;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.card:hover span {
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 100px;
+    height: 100px;
+    font-size: 16px;
+    transform: scale(0.5); /* 모바일에서는 카드 크기를 줄입니다. */
+  }
+
+  .title-image-center h1 {
+    font-size: 24px;
+  }
+
+  .title-image-center p {
+    font-size: 16px;
+  }
+
+  .title-section {
+    flex-wrap: wrap; /* 타이틀 섹션을 3분할로 보이도록 설정합니다. */
+  }
+}
+</style>
+<script>
+  // 이미지 로드 후에 스타일 적용
+  window.addEventListener('load', function() {
+    var leftImage = document.getElementById('left-image');
+    var rightImage = document.getElementById('right-image');
+    leftImage.style.opacity = 1;
+    rightImage.style.opacity = 1;
+    var leftImageSrc = leftImage.getAttribute('src');
+    var rightImageSrc = rightImage.getAttribute('src');
+    var randomLeftImage = 'title/' + Math.floor(Math.random() * 18 + 19) + '.jpg';
+    var randomRightImage = 'title/' + Math.floor(Math.random() * 18 + 1) + '.jpg';
+    while (randomLeftImage === leftImageSrc) {
+      randomLeftImage = 'title/' + Math.floor(Math.random() * 18 + 19) + '.jpg';
+    }
+    while (randomRightImage === rightImageSrc || randomRightImage === randomLeftImage) {
+      randomRightImage = 'title/' + Math.floor(Math.random() * 18 + 1) + '.jpg';
+    }
+    leftImage.setAttribute('src', randomLeftImage);
+    rightImage.setAttribute('src', randomRightImage);
+  });
+</script>
+  </head>
+  <body>
+<!-- 타이틀 섹션 -->
+<div class="title-section">
+  <div class="title-image-left">
+    <img id="left-image" src="title/<?php echo rand(18, 36); ?>.jpg" alt="Title Image 1">
+  </div>
+  <div class="title-image-center">
+    <h1>전국 사진 촬영지 소개</h1>
+    <p>제작자: LeeSangsu | 연락처: topcurune@gmail.com</p>
+
+  </div>
+  <div class="title-image-right">
+    <img id="right-image" src="title/<?php echo rand(1, 18); ?>.jpg" alt="Title Image 2">
+  </div>
+</div>
+<!-- 타이틀 이미지 -->
+<div class="title-image">
+  <div class="container">
+    <div class="image-container">
+      <?php
+        $images = array();
+        for ($i = 1; $i <= 18; $i++) {
+          $images[] = 'title/' . $i . '.jpg';
+        }
+        shuffle($images);
+        for ($i = 0; $i < 6; $i++) {
+          echo '<img src="' . $images[$i] . '" alt="Image ' . ($i + 1) . '">';
+        }
+      ?>
+
+
+    </div>
+  </div>
+</div>
+ 
+<div class="card-container">
+  <div class="row justify-content-center">
+    <!-- 서울 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="seoul" onclick="openPhotos('seoul')">
+        <img id="seoul-image" src="images/seoul.jpg" alt="Seoul" width="100" height="100">
+        <span>서울</span>
+      </div>
+    </div>
+
+    <!-- 경기 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="gyeonggi" onclick="openPhotos('gyeonggi')">
+        <img id="gyeonggi-image" src="images/gyeonggi.jpg" alt="Gyeonggi" width="100" height="100">
+        <span>경기도</span>
+      </div>
+    </div>
+    <!-- 부산 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="busan" onclick="openPhotos('busan')">
+        <img id="busan-image" src="images/busan.jpg" alt="Busan" width="100" height="100">
+        <span>부산</span>
+      </div>
+    </div>
+
+    <!-- 광주 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="gkwangju" onclick="openPhotos('gwangju')">
+        <img id="gkwangju-image" src="images/gwangju.jpg" alt="Gwangju" width="100" height="100">
+        <span>광주</span>
+      </div>
+    </div>
+
+    <!-- 경상남도 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="gyeongsangnam" onclick="openPhotos('gyeongsangnam')">
+        <img id="gyeongsangnam-image" src="images/gyeongsangnam.jpg" alt="Gyeongsangnam" width="100" height="100">
+        <span>경상남도</span>
+      </div>
+    </div>
+
+    <!-- 경상북도 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="gyeongsangbuk" onclick="openPhotos('gyeongsangbuk')">
+        <img id="gyeongsangbuk-image" src="images/gyeongsangbuk.jpg" alt="Gyeongsangbuk" width="100" height="100">
+        <span>경상북도</span>
+      </div>
+    </div>
+
+    <!-- 충청남도 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="chungcheongnam" onclick="openPhotos('chungcheongnam')">
+        <img id="chungcheongnam-image" src="images/chungcheongnam.jpg" alt="Chungcheongnam" width="100" height="100">
+        <span>충청남도</span>
+      </div>
+    </div>
+
+    <!-- 충청북도 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="chungcheongbuk" onclick="openPhotos('chungcheongbuk')">
+        <img id="chungcheongbuk-image" src="images/chungcheongbuk.jpg" alt="Chungcheongbuk" width="100" height="100">
+        <span>충청북도</span>
+      </div>
+    </div>
+
+    <!-- 전라남도 카드 -->
+    <div class="col-md-4">
+      <div class="card" id="jeonnam" onclick="openPhotos('jeonnam')">
+        <img id="jeonnam-image" src="images/jeonnam.jpg" alt="Jeonnam" width="100" height="100">
+        <span>전라남도</span>
+      </div>
+    </div>
+
+      <!-- 전라북도 카드 -->
+      <div class="col-md-4">
+        <div class="card" id="jeonbuk" onclick="openPhotos('jeonbuk')">
+          <img id="jeonbuk-image" src="images/jeonbuk.jpg" alt="Jeonbuk" width="100" height="100">
+          <span>전라북도</span>
+        </div>
+      </div>
+
+      <!-- 제주도 카드 -->
+      <div class="col-md-4">
+        <div class="card" id="jeju" onclick="openPhotos('jeju')">
+          <img id="jeju-image" src="images/jeju.jpg" alt="Jeju" width="100" height="100">
+          <span>제주도</span>
+        </div>
+      </div>
+ 
+   <!-- 강원도 카드 -->
+      <div class="col-md-4">
+        <div class="card" id="gangwon" onclick="openPhotos('gangwon')">
+          <img id="gangwon-image" src="images/gangwon.jpg" alt="gangwon" width="100" height="100">
+          <span>강원도</span>
+        </div>
+      </div>
+  
+   <!-- 기타 카드 -->
+      <div class="col-md-4">
+        <div class="card" id="etc" onclick="openPhotos('etc')">
+          <img id="etc-image" src="images/etc.jpg" alt="etc" width="100" height="100">
+          <span>기타</span>
+        </div>
+      </div>
+
+<script>
+  const leftImages = [
+    'title/1.jpg',
+    'title/2.jpg',
+    'title/3.jpg',
+    'title/4.jpg',
+    'title/5.jpg',
+    'title/6.jpg',
+    'title/7.jpg',
+    'title/8.jpg',
+    'title/9.jpg',
+    'title/10.jpg',
+    'title/11.jpg',
+    'title/12.jpg',
+    'title/13.jpg',
+    'title/14.jpg',
+    'title/15.jpg',
+    'title/16.jpg',
+    'title/17.jpg',
+    'title/18.jpg'
+  ];
+
+  const rightImages = [
+    'title/1.jpg',
+    'title/2.jpg',
+    'title/3.jpg',
+    'title/4.jpg',
+    'title/5.jpg',
+    'title/6.jpg',
+    'title/7.jpg',
+    'title/8.jpg',
+    'title/9.jpg',
+    'title/10.jpg',
+    'title/11.jpg',
+    'title/12.jpg',
+    'title/13.jpg',
+    'title/14.jpg',
+    'title/15.jpg',
+    'title/16.jpg',
+    'title/17.jpg',
+    'title/18.jpg'
+  ];
+
+  function changeImages() {
+    const leftImage = document.getElementById('left-image');
+    const rightImage = document.getElementById('right-image');
+    const randomIndex = Math.floor(Math.random() * 18);
+    leftImage.src = leftImages[randomIndex];
+    rightImage.src = rightImages[randomIndex];
+  }
+
+  setInterval(changeImages, 3000); // 3초마다 이미지 변경
+</script>
+
+<style>
+  .title-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px; /* 타이틀 섹션의 높이를 고정시킵니다. */
+  }
+
+  .title-image-left,
+  .title-image-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-image-left img,
+  .title-image-right img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+
+<script>
+  function openPhotos(location) {
+  let images = [];
+  let links = [];
+  let seoulUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let gyeonggiUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let busanUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let gwangjuUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let gyeongsangnamUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let gyeongsangbukUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let chungcheongnamUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let chungcheongbukUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let jeonranamUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let jeonrabukUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let jejuUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let gangwonUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let etcUrls = [
+    "https://www.naver.com",
+    "https://www.google.com",
+    "https://www.daum.net",
+    "https://www.nate.com",
+    "https://www.yahoo.com"
+  ];
+  let count = 10;
+
+
+// 해당 지역의 이미지 경로와 링크를 배열에 추가
+switch (location) {
+  case "seoul":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(seoulUrls[i - 1]);
+    }
+    break;
+  case "gyeonggi":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/b${i}.jpg`);
+      links.push(gyeonggiUrls[i - 1]);
+    }
+    break;
+  case "busan":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(busanUrls[i - 1]);
+    }
+    break;
+  case "gwangju":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(gwangjuUrls[i - 1]);
+    }
+    break;
+  case "gyeongsangnam":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(gyeongsangnamUrls[i - 1]);
+    }
+    break;
+  case "gyeongsangbuk":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/b${i}.jpg`);
+      links.push(gyeongsangbukUrls[i - 1]);
+    }
+    break;
+  case "chungcheongnam":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(chungcheongnamUrls[i - 1]);
+    }
+    break;
+  case "chungcheongbuk":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(chungcheongbukUrls[i - 1]);
+    }
+    break;
+  case "jeonranam":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(jeonranamUrls[i - 1]);
+    }
+    break;
+  case "jeonrabuk":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(jeonrabukUrls[i - 1]);
+    }
+    break;
+  case "jeju":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(jejuUrls[i - 1]);
+    }
+    break;
+  case "gangwon":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(gangwonUrls[i - 1]);
+    }
+    break;
+  case "etc":
+    for (let i = 1; i <= count; i++) {
+      images.push(`./images/${location}/a${i}.jpg`);
+      links.push(etcUrls[i - 1]);
+    }
+    break;
+  default:
+    break;
+  }
+
+  // 이미지와 링크를 함께 보여줌
+  let imageList = images.map((image, index) => `<a href="${links[index]}" target="_blank"><img src="${image}" class="img-fluid" style="margin: 10px;" /></a>`).join("");
+  let newWindow = window.open("", "", "fullscreen=yes");
+  newWindow.document.write(`
+    <html>
+      <head>
+        <title>${location} 사진</title>
+        <style>
+          img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+          }
+          @media (max-width: 767px) {
+            img {
+              max-width: 100%;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container-fluid">
+          <div class="row">
+            ${imageList}
+          </div>
+        </div>
+      </body>
+    </html>
+  `);
+  newWindow.document.close();
+}
+</script>
+</body>
+
+
+    
